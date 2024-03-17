@@ -19,14 +19,14 @@ export class UserService {
         return user
     }
 
-    async createUser(createUserDTO: UserDTO): Promise<UserInterface> {
-        const user = new this.userModel(createUserDTO)
-        return await user.save()
+    async createUser(user: UserDTO): Promise<UserInterface> {
+        const newUser = new this.userModel(user)
+        return await newUser.save()
     }
 
-    async updateUser(userId: string, createUser: UserDTO): Promise<UserInterface> {
-        const user = await this.userModel.findByIdAndUpdate(userId, createUser, {new: true});
-        return user;
+    async updateUser(userId: string, user: UserDTO): Promise<UserInterface> {
+        const updatedUser = await this.userModel.findByIdAndUpdate(userId, user, {new: true})
+        return updatedUser
     }
 
     async deleteUser(userId: string): Promise<UserInterface> {
