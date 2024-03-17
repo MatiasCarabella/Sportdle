@@ -1,4 +1,4 @@
-export class CreateUserDTO {
+export class UserDTO {
     readonly email: string
     readonly source: string
     readonly password?: string

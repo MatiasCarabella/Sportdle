@@ -1,15 +1,15 @@
 import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
-import { CreateUserDTO } from "src/user/dto/user.dto";
-import { User } from "src/user/interfaces/user.interface";
+import { UserDTO } from "src/user/dto/user.dto";
+import { UserInterface } from "src/user/interfaces/user.interface";
 
 @Injectable()
 export class AuthService {
 
-    constructor ( @InjectModel('User') private readonly userModel: Model<User>) {}
+    constructor ( @InjectModel('User') private readonly userModel: Model<UserInterface>) {}
 
-    async validateUser(user: CreateUserDTO) {
+    async validateUser(user: UserDTO) {
         console.log('AuthService');
         console.log('Searching for...')
         console.log(user);
